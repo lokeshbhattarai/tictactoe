@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="project.rnp.tictactoe.model.Position"/>
+        <import type="java.util.List"/>
+        <variable name="pos" type="Position"/>
+        <variable name="positions" type="List&lt;Position&gt;"/>
+        <variable name="gamePlay" type="project.rnp.tictactoe.model.GameRunner"/>
+    </data>
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context=".ui.MainActivity"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:weightSum="1"
+        >
+
+
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="0dp"
+        android:layout_weight="0.7"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        >
+
+        <TextView android:id="@+id/currentStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            android:text="@{gamePlay.currentStatus}"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:gravity="center"
+
+            />
+
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        >
+
+        <Button android:id="@+id/seven"
+            android:text="@{positions[6].mark}"
+            android:textColor="@{positions[6].textColor}"
+            android:onClick="@{(view)-> gamePlay.onPositionMarked(view,6)}"
+            android:enabled="@{gamePlay.positions[6].enabled==true?true:false}"
+            style="@style/ButtonWithBorder"/>
+
+        <Button android:id="@+id/eight"
+            android:text="@{positions[7].mark}"
+            android:textColor="@{positions[7].textColor}"
+            android:onClick="@{(view)-> gamePlay.onPositionMarked(view,7)}"
+            android:enabled="@{gamePlay.positions[7].enabled==true?true:false}"
+            style="@style/ButtonWithBorder"/>
+
+        <Button android:id="@+id/nine"
+            android:text="@{positions[8].mark}"
+            android:textColor="@{positions[8].textColor}"
+            android:onClick="@{(view)-> gamePlay.onPositionMarked(view,8)}"
+            android:enabled="@{gamePlay.positions[8].enabled==true?true:false}"
+            style="@style/ButtonWithBorder"
+            />
+</LinearLayout>
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button android:id="@+id/four"
+            android:text="@{positions[3].mark}"
+            android:textColor="@{positions[3].textColor}"
+            android:onClick="@{(view)-> gamePlay.onPositionMarked(view,3)}"
+            android:enabled="@{gamePlay.positions[3].enabled==true?true:false}"
+            style="@style/ButtonWithBorder"
+            />
+
+        <Button android:id="@+id/five"
+            android:text="@{positions[4].mark}"
+            android:textColor="@{positions[4].textColor}"
+            android:onClick="@{(view)-> gamePlay.onPositionMarked(view,4)}"
+            android:enabled="@{gamePlay.positions[4].enabled==true?true:false}"
+            style="@style/ButtonWithBorder"/>
+
+        <Button android:id="@+id/six"
+            android:text="@{positions[5].mark}"
+            android:textColor="@{positions[5].textColor}"
+            android:onClick="@{(view)-> gamePlay.onPositionMarked(view,5)}"
+            android:enabled="@{gamePlay.positions[5].enabled==true?true:false}"
+            style="@style/ButtonWithBorder"
+            />
+</LinearLayout>
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button android:id="@+id/one"
+            android:text="@{positions[0].mark}"
+            android:textColor="@{positions[0].textColor}"
+            android:onClick="@{(view)-> gamePlay.onPositionMarked(view,0)}"
+            android:enabled="@{gamePlay.positions[0].enabled==true?true:false}"
+            style="@style/ButtonWithBorder"/>
+
+        <Button android:id="@+id/two"
+            android:text="@{positions[1].mark}"
+            android:textColor="@{positions[1].textColor}"
+            android:onClick="@{(view)-> gamePlay.onPositionMarked(view,1)}"
+            android:enabled="@{gamePlay.positions[1].enabled==true?true:false}"
+            style="@style/ButtonWithBorder"
+            />
+
+        <Button android:id="@+id/three"
+            android:text="@{positions[2].mark}"
+            android:textColor="@{positions[2].textColor}"
+            android:onClick="@{(view)-> gamePlay.onPositionMarked(view,2)}"
+            android:enabled="@{gamePlay.positions[2].enabled==true?true:false}"
+            style="@style/ButtonWithBorder"
+            />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="0dp"
+            android:layout_weight=".3"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal|center_vertical"
+            >
+
+            <Button android:id="@+id/button_reset_game"
+                android:text="Replay Game"
+                android:visibility="@{gamePlay.allowReload==true ? View.VISIBLE : View.GONE}"
+                android:onClick="@{(view)-> gamePlay.resetGame()}"
+                android:layout_margin="10dp"
+                style="@style/ButtonWidget"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
